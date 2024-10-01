@@ -1,4 +1,6 @@
-﻿public class Calculator
+﻿using _ICT3112_Calculator;
+
+public class Calculator
 {
     public Calculator() { }
     public double DoOperation(double num1, double num2, string op)
@@ -252,4 +254,22 @@
     {
         return (1 / decayParameter) * Math.Log(1 + decayParameter * initialFailureIntensity * time);
     }
+
+    // Lab 4
+    public double GenMagicNum(double input, IFileReader fileReader)
+    {
+        double result = 0;
+        int choice = Convert.ToInt16(input);
+
+        string[] magicStrings = fileReader.Read("C:\\Users\\malco\\source\\repos\\3112_Lab1\\3112_Calculator.UnitTests\\MagicNumbers.txt");
+        if ((choice >= 0) && (choice < magicStrings.Length))
+        {
+            result = Convert.ToDouble(magicStrings[choice]);
+        }
+        result = (result > 0) ? (2 * result) : (-2 * result);
+        return result;
+    }
+
+
+
 }

@@ -251,4 +251,15 @@ public class CalculatorTests
         // Assert
         Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException);
     }
+
+    //[Test]
+    //public void GenMagicNum_ValidInput_ReturnsCorrectResult()
+    //{
+        // Act: Call GenMagicNum with mock IFileReader, pass a valid input
+        //double result = _calculator.GenMagicNum(1);
+
+        // Assert: Verify the correct number is returned and processed correctly
+        //Assert.That(result, Is.EqualTo(6));  // Mock returned 42, 42 * 2 = 84
+    //}
+
 }
