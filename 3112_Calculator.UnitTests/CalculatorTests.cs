@@ -1,11 +1,16 @@
+using _ICT3112_Calculator;
+
 public class CalculatorTests
 {
     private Calculator _calculator;
+    private IFileReader _reader;
+
     [SetUp]
     public void Setup()
     {
         // Arrange
         _calculator = new Calculator();
+        _reader = new FileReader();
     }
 
     [Test]
@@ -252,14 +257,23 @@ public class CalculatorTests
         Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException);
     }
 
-    //[Test]
-    //public void GenMagicNum_ValidInput_ReturnsCorrectResult()
-    //{
-        // Act: Call GenMagicNum with mock IFileReader, pass a valid input
-        //double result = _calculator.GenMagicNum(1);
+    [Test]
+    public void GenMagicNum_ValidInput_ReturnsCorrectResult()
+    {
+        //Act: Call GenMagicNum with mock IFileReader, pass a valid input
+        double result = _calculator.GenMagicNum(1, _reader);
 
         // Assert: Verify the correct number is returned and processed correctly
-        //Assert.That(result, Is.EqualTo(6));  // Mock returned 42, 42 * 2 = 84
-    //}
+        Assert.That(result, Is.EqualTo(4));  
+    }
+
+
+    [Test]
+    public void GenMagicNum_NegativeInput_ThrowArgumentException()
+    {
+        // Assert: Verify the correct number is returned and processed correctly
+        Assert.That(() => _calculator.GenMagicNum(-5, _reader), Throws.ArgumentException);
+    }
+
 
 }

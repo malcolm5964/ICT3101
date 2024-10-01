@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,17 +31,13 @@ namespace _ICT3112_Calculator.UnitTests
             double result = _calculator.GenMagicNum(1, _mockFileReader.Object);
 
             // Assert: Verify the correct number is returned and processed correctly
-            Assert.That(result, Is.EqualTo(0));  // Mock returned 42, 42 * 2 = 84
+            Assert.That(result, Is.EqualTo(84));  // Mock returned 42, 42 * 2 = 84
         }
         [Test]
         public void GenMagicNum_InvalidInput_ReturnsNegativeResult()
         {
-
-            // Act
-            double result = _calculator.GenMagicNum(-1, _mockFileReader.Object); // Invalid input, expect 0
-
             // Assert
-            Assert.That(result, Is.EqualTo(0));  // Expect a negative result to be handled
+            Assert.That(() => _calculator.GenMagicNum(-1, _mockFileReader.Object), Throws.ArgumentException);
         }
         [Test]
         public void GenMagicNum_OutOfRange_ReturnsDefaultValue()

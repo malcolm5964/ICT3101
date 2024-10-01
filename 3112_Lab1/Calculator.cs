@@ -1,4 +1,5 @@
 ﻿using _ICT3112_Calculator;
+using NUnit.Framework;
 
 public class Calculator
 {
@@ -259,9 +260,14 @@ public class Calculator
     public double GenMagicNum(double input, IFileReader fileReader)
     {
         double result = 0;
+        if (input < 0)
+        {
+            throw new ArgumentException("Input cannot be negative.");
+        }
+
         int choice = Convert.ToInt16(input);
 
-        string[] magicStrings = fileReader.Read("C:\\Users\\malco\\source\\repos\\3112_Lab1\\3112_Calculator.UnitTests\\MagicNumbers.txt");
+        string[] magicStrings = fileReader.Read("MagicNumbers.txt");
         if ((choice >= 0) && (choice < magicStrings.Length))
         {
             result = Convert.ToDouble(magicStrings[choice]);
