@@ -38,4 +38,10 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
+  <ItemGroup>
+	<None Update="MagicNumbers.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+	  
 </Project>
