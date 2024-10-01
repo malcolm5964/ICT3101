@@ -274,6 +274,7 @@ public class Calculator
         }
         result = (result > 0) ? (2 * result) : (-2 * result);
         return result;
+
     }
 
 
